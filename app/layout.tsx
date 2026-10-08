@@ -6,6 +6,7 @@ import { AuroraBackground } from '@/components/aurora-background'
 import { SiteHeader } from '@/components/site-header'
 import { BottomNav } from '@/components/bottom-nav'
 import { ScrollWatcher } from '@/components/scroll-watcher'
+import { IntroSplash } from '@/components/intro-splash'
 import './globals.css'
 
 const sans = Be_Vietnam_Pro({
@@ -43,7 +44,7 @@ export default function RootLayout({
         <script
           dangerouslySetInnerHTML={{
             __html:
-              "try{var n=navigator,c=n.connection;if((n.deviceMemory&&n.deviceMemory<=4)||(n.hardwareConcurrency&&n.hardwareConcurrency<=4)||(c&&c.saveData)||matchMedia('(prefers-reduced-motion: reduce)').matches)document.documentElement.classList.add('lite')}catch(e){}",
+              "try{var n=navigator,c=n.connection;if((n.deviceMemory&&n.deviceMemory<=4)||(n.hardwareConcurrency&&n.hardwareConcurrency<=4)||(c&&c.saveData)||matchMedia('(prefers-reduced-motion: reduce)').matches)document.documentElement.classList.add('lite')}catch(e){}try{if(sessionStorage.getItem('hz-intro')==='1')document.documentElement.classList.add('intro-seen')}catch(e){}",
           }}
         />
       </head>
@@ -57,6 +58,7 @@ export default function RootLayout({
           </main>
           <BottomNav />
         </SettingsProvider>
+        <IntroSplash />
         {process.env.NODE_ENV === 'production' && <Analytics />}
       </body>
     </html>
