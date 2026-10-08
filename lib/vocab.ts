@@ -1,5 +1,6 @@
 import { pinyin } from 'pinyin-pro'
 import { RAW_EXTRA } from './vocab-extra'
+import { RAW_EXTRA_2 } from './vocab-extra-2'
 
 export type Level = 'A1' | 'A2' | 'B1' | 'B2' | 'C1' | 'Native'
 export type Category =
@@ -263,7 +264,7 @@ const RAW: Record<Level, Partial<Record<Category, string[]>>> = {
       '合同|Contract|Hợp đồng',
       '预算|Budget|Ngân sách',
       '投资|Investment|Đầu tư',
-      '风险|Risk|Rủi ro',
+      '风险|Risk|R��i ro',
       '利润|Profit|Lợi nhuận',
       '市���|Market|Thị trường',
       '创新|Innovation|Đổi mới',
@@ -380,7 +381,7 @@ function build(): Word[] {
   const out: Word[] = []
   const seen = new Set<string>()
   let id = 0
-  for (const source of [RAW, RAW_EXTRA]) {
+  for (const source of [RAW, RAW_EXTRA, RAW_EXTRA_2]) {
   for (const lvl of LEVELS) {
     const cats = source[lvl]
     for (const cat of Object.keys(cats) as Category[]) {
